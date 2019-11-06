@@ -1,0 +1,95 @@
+/* pages/collect/collect.wxss */
+
+.collect .form {
+  display: block;
+  padding-top: 60rpx;
+}
+
+.collect .item {
+  position: relative;
+  padding: 20rpx 32rpx;
+  overflow: hidden;
+  background-color: #fff;
+  font-size: 28rpx;
+  line-height: 28rpx;
+  margin-bottom: 24rpx;
+  display: flex;
+}
+
+.collect .form .label {
+  width: 180rpx;
+  flex: none;
+  font-size: 28rpx;
+  line-height: 48rpx;
+}
+.collect .form .required:before {content: "*"; color: #e60012; margin-left: -6px; }
+
+.collect .form .input {
+  position: relative;
+  /* overflow: hidden; */
+  color: #969799;
+  vertical-align: middle;
+  flex: 1;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+}
+
+.collect .form .input input {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    color: #050508;
+    text-align: left;
+    background-color: transparent;
+    border: 0;
+    resize: none;
+}
+
+.collect .form .submit-btn {
+  background-color: #2259BD;
+  color: #fff;
+  margin: 100rpx 20rpx 50rpx;
+}
+
+.collect .form .valid-btn {
+  position: absolute;
+  right: 0;
+  top: -6rpx;
+  z-index: 3;
+  display: inline-block;
+  box-sizing: border-box;
+  text-align: center;
+  border-radius: 2px;
+  -webkit-transition: opacity 0.2s;
+  transition: opacity 0.2s;
+  -webkit-appearance: none;
+  -webkit-text-size-adjust: 100%;
+  min-width: 60px;
+  height: 30px;
+  padding: 0 8px;
+  font-size: 12px;
+  line-height: 28px;
+  background-color: #2259BD;
+  border: 1px solid #2259BD;
+  color: #fff;
+
+ 
+}
+
+.collect .form .item .picker { line-height: 48rpx; height: 48rpx; color: #777; }
+
+.collect .tips {
+  padding: 0 20rpx;
+}
+
+.collect .tips text { color: #E64340; font-size: 24rpx; }
+
+/* 页脚 */
+.site-footer {
+  font-size: 24rpx;
+  color: #ddd;
+  text-align: center;
+}

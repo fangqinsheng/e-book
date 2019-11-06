@@ -1,0 +1,9 @@
+.collect {
+  padding-top: 60rpx;
+}
+
+.van-cell-group {
+  margin-bottom: 24rpx;
+}
+
+.collect .van-count-down { color: #fff; line-height: 28px; }

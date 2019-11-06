@@ -1,0 +1,10 @@
+page {
+	height: 100%; width: 100%;background: #fff; 
+  --toast-max-width: 100px;
+  --toast-background-color: pink;
+}
+
+.page{
+  height: 100%;
+  font-family: 'PingFang SC', 'Helvetica Neue', Helvetica, 'Droid Sans Fallback', 	'Microsoft Yahei', sans-serif;
+}

@@ -1,0 +1,51 @@
+<view class="page" >
+  <!-- 图册轮播 -->
+  <swiper class="gallery" skip-hidden-item-layout vertical="true" current="{{ swiperCurrent }}">
+    <block wx:for="{{ carousel }}" wx:key="{{item.id}}">
+      <swiper-item class="item item-{{index}}">
+        <movable-area class="swiper" scale-area>
+          <movable-view class="swiper" direction="all" out-of-bounds scale scale-min="1" scale-max="2" scale-value="1" >
+            <image class="{{ item.show ? 'active' : '' }}" src="{{ item.show ? item.url : item.def }}" mode="aspectFit" bindtouchstart='touchStart' bindtouchend="touchEnd"></image>
+          </movable-view>
+        </movable-area>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+
+<!-- 弹框 -->
+<van-popup show="{{ dialogModal }}" position="bottom" round>
+  <view class="dialog">
+    <view class="title">{{ dialog.title }}</view>
+    <view class="description">
+      <text class="greeting">尊敬的用户，您好:</text>
+      <text class="txt">{{ dialog.description }}</text>
+    </view>
+    <view class="btn">
+      <button bind:tap="navigate">{{ dialog.btn }}</button>
+    </view>
+  </view>
+</van-popup>
+
+<!-- 侧边栏 -->
+<van-popup show="{{ asideModal }}" position="right" custom-style="width: 75%;" bind:close="closeAside">
+  <van-cell-group wx:for="{{ aside }}" wx:key="{{ item }}">
+    <van-cell icon="label-o" title="{{ item.name }}" value="{{ item.range }}" data-ID="{{ item.id }}" bindtap="swiperChange" />
+  </van-cell-group>
+</van-popup>
+
+<!-- 引导页 -->
+<view class="guide" wx:if="{{ guide == true }}">
+  <view class="box {{ step ? 'hide' : 'show' }}" bindtap="next">
+    <view class="block">
+      <image src="img/second.png"></image>
+      <text>向左滑动呼唤菜单</text>
+    </view>
+  </view>
+  <view class="box {{ step ? 'show' : 'hide' }}" bindtap="last">
+    <view class="block">
+      <image src="img/first.png"></image>
+      <text>上下滑动浏览图片</text>
+    </view>
+  </view>
+</view>

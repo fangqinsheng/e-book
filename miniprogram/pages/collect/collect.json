@@ -1,0 +1,16 @@
+{
+  "navigationBarBackgroundColor": "#1989fa",
+  "navigationBarTitleText": "访客登记",
+  "navigationBarTextStyle": "white",
+  "usingComponents": {
+    "van-count-down": "/components/count-down/index",
+    "van-cell-group": "/components/cell-group/index",
+    "van-field": "/components/field/index",
+    "van-popup": "/components/popup/index",
+    "van-tree-select": "/components/tree-select/index",
+    "van-button": "/components/button/index",
+    "van-area": "/components/area/index",
+    "van-divider": "/components/divider/index",
+    "van-notify": "/components/notify/index"
+  }
+}

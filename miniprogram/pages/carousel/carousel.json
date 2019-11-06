@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "van-icon": "/components/icon/index",
+    "van-cell": "/components/cell/index",
+    "van-cell-group": "/components/cell-group/index",
+    "van-popup": "/components/popup/index"
+  }
+}

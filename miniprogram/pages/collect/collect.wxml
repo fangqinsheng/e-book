@@ -1,0 +1,118 @@
+<!-- 产品页面 -->
+<view class="collect">
+
+  <!-- 用户名 -->
+  <van-cell-group>
+    <van-field
+      value="{{ form.name }}"
+      required
+      label="用户名"
+      placeholder="请输入用户名"
+      bind:change="onChange"
+      data-name="name"
+    />
+  </van-cell-group>
+
+  <!-- 所在地区 -->
+  <van-cell-group>
+    <van-field
+      value="{{ form.region }}"
+      required
+      readonly
+      label="所在地区"
+      placeholder="请选择地区"
+      bind:tap="openArea"
+    />
+  </van-cell-group>
+
+  <!-- 手机号码 -->
+  <van-cell-group>
+    <van-field
+      value="{{ form.mobile }}"
+      required
+      label="手机号码"
+      type="number"
+      placeholder="请输入手机号码"
+      bind:change="onChange"
+      data-name="mobile"
+    />
+  </van-cell-group>
+
+  <!-- sms -->
+  <van-cell-group>
+    <van-field
+      value="{{ form.sms }}"
+      required
+      center
+      type="number"
+      label="短信验证码"
+      placeholder="请输入短信验证码"
+      use-button-slot
+      bind:change="onChange"
+      data-name="sms"
+    >
+      <van-button slot="button" size="small" type="info" bindtap="sendSMS" wx:if="{{ !status }}">发送验证码</van-button>
+      <van-button slot="button" size="small" type="info" wx:if="{{ status }}">
+        <van-count-down time="{{ time }}" format="ss秒后重新获取" bind:finish="changeTime"/>
+      </van-button>
+    </van-field>
+  </van-cell-group>
+
+  <!-- 公司名称 -->
+  <van-cell-group>
+    <van-field
+      value="{{ form.company }}"
+      label="公司名称"
+      placeholder="请输入公司名"
+      bind:change="onChange"
+      data-name="company"
+    />
+  </van-cell-group>
+
+  <!-- 企业邮箱 -->
+  <van-cell-group>
+    <van-field
+      value="{{ form.email }}"
+      label="企业邮箱"
+      placeholder="请输入企业邮箱"
+      bind:change="onChange"
+      data-name="email"
+    />
+  </van-cell-group>
+
+  <!-- 了解产品 -->
+  <van-cell-group>
+    <van-field
+      value="{{ form.product }}"
+      label="了解产品"
+      readonly
+      placeholder="选择您想了解的3个产品"
+      bind:tap="openProduct"
+    />
+  </van-cell-group>
+
+
+  <van-divider contentPosition="center" customStyle="font-size: 24rpx; color: #db0012;">*为必填项，表单信息绝对保密，不会对外公布，请放心填写！</van-divider>
+
+  <van-button type="info" size="large" bind:tap="submitForm">保存提交</van-button>
+</view>
+
+<!-- 错误弹框 -->
+<van-notify id="van-notify" />
+
+<!-- 了解产品 -->
+<van-popup show="{{ productModal }}" bind:close="closeProduct" position="bottom">
+  <van-tree-select
+    items="{{ product }}"
+    main-active-index="{{ mainActiveIndex }}"
+    active-id="{{ activeId }}"
+    max="{{ max }}"
+    bind:click-nav="onClickNav"
+    bind:click-item="onClickItem"
+  />
+</van-popup>
+
+<!-- 地区控件 -->
+<van-popup show="{{ areaModal }}" bind:close="closeArea" position="bottom">
+  <van-area area-list="{{ areaList }}" columns-num="{{ 2 }}" title="选择地区" bind:confirm="saveArea" bind:change="changeArea" bind:cancel="closeArea" />
+</van-popup>
